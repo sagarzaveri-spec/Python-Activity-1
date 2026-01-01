@@ -1,0 +1,56 @@
+#turtle - equilateral triangle
+import turtle
+turtle.Screen().bgcolor("Black")
+s=turtle.Screen()
+s.setup(400,400)
+board=turtle.Turtle()
+board.speed(1)
+board.color("white","blue")
+board.begin_fill()
+
+for i in range(3):
+    board.forward(100)
+    board.left(120)
+board.end_fill()
+turtle.done()
+
+#turtle - rectangle
+import turtle
+s=turtle.Screen()
+turtle.Screen().bgcolor("brown")
+s.setup(400,600)
+board=turtle.Turtle()
+board.speed(2)
+board.color("yellow","orange")
+board.begin_fill()
+
+board.forward(120)
+board.left(90)
+
+board.forward(80)
+board.left(90)
+
+board.forward(120)
+board.left(90)
+
+board.forward(80)
+board.left(90)
+
+board.end_fill()
+turtle.done()
+
+#turtle - hexagon
+import turtle
+turtle.Screen().bgcolor("Orange")
+s=turtle.Screen()
+s.setup(600,600)
+board=turtle.Turtle()
+board.speed(1)
+board.color("black","white")
+board.begin_fill
+
+for i in range(6):
+    board.forward(90)
+    board.left(60)
+board.end_fill
+turtle.done
