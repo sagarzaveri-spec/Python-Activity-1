@@ -1,0 +1,50 @@
+#turtle - house
+import turtle
+turtle.Screen().bgcolor("white")
+s=turtle.Screen()
+s.setup(400,400)
+t=turtle.Turtle()
+t.color("black","black")
+t.speed(1)
+t.begin_fill
+
+#triangle for the roof
+for i in range(3):
+    t.forward(100)
+    t.left(120)
+#building structure - square
+for i in range(4):
+    t.forward(100)
+    t.right(90)
+#windows - square
+t.penup()
+t.right(50)
+t.forward(20)
+t.left(50)
+t.pendown()
+for i in range(4):
+    t.forward(30)
+    t.right(90)
+t.penup()
+t.forward(45)
+t.pendown()
+for i in range(4):
+    t.forward(30)
+    t.right(90)
+#windows - square
+t.penup()
+t.right(115)
+t.forward(50)
+t.left(115)
+t.pendown()
+
+t.forward(30)
+t.right(90)
+t.forward(39)
+t.right(90)
+t.forward(30)
+t.right(90)
+t.forward(39)
+t.right(90)
+t.end_fill
+turtle.done
