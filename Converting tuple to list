@@ -1,0 +1,7 @@
+original_tuple=("Sagar","Zaveri","22 years","190 cm","72 kgs","Mathematics")
+
+def details(og_tuple):
+    return list(og_tuple)
+
+print("Original Tuple is", original_tuple)
+print("New List is", details(original_tuple))
