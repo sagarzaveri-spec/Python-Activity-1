@@ -6,7 +6,9 @@ class FIFA:
         print("FIFA Country Name: ",self.country)
 object1=FIFA("Argentina")
 object1.show_information()
+'''
 
+'''
 class fruit:
     taste="Sweet"
     def __init__(self,name,colour):
@@ -20,6 +22,7 @@ print(apple.name,apple.colour)
 print(banana.name,banana.colour)
 '''
 
+'''
 class Parrot:
     species="Bird"
     def __init__(self,name,age):
@@ -41,3 +44,4 @@ print("This is a",grey_parrot.name,cockatiel.age)
 
 print(cockatiel.sings("'Smooth Operator'"))
 print(cockatiel.dances("Contemporary"))
+'''
