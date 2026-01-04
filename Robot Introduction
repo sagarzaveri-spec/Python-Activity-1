@@ -1,0 +1,6 @@
+class Robots:
+    def __init__(self,name):
+        self.name=name
+R1=Robots("Xae155")
+R2=Robots("Xae1567")
+print("The name of the robots are",R1.name,"and",R2.name)
