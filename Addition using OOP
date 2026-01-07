@@ -1,0 +1,9 @@
+class calculator:
+    def __init__(self,number1,number2,number3):
+        self.number1=number1
+        self.number2=number2
+        self.number3=number3
+    def addition(self):
+        print(f"The sum of the three digits will be {calculation.number1+calculation.number2+calculation.number3}")
+calculation=calculator(200,210,220)
+calculation.addition()
