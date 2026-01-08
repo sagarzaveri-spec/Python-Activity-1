@@ -1,0 +1,72 @@
+import math
+from abc import ABC, abstractmethod
+class Polygons(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+    @abstractmethod
+    def perimeter(self):
+        pass
+class Square(Polygons):
+    def __init__(self,length_of_square):
+        self.length_of_square=length_of_square
+    def area(self):
+        return self.length_of_square**2
+    def perimeter(self):
+        return self.length_of_square*4
+class Rectangle(Polygons):
+    def __init__(self,length,width):
+        self.length=length
+        self.width=width
+    def area(self):
+        return self.length*self.width
+    def perimeter(self):
+        return 2*(self.length+self.width)
+class EquilateralTriangle(Polygons):
+    def __init__(self,length):
+        self.length=length
+    def area(self):
+        return (math.sqrt(3)/4)*(self.length**2)
+    def perimeter(self):
+        return self.length*3
+
+while True:
+    print(
+        f"\nHello, welcome to the geometric shape area & perimeter calculator. Please select the shape for which the calculations are required: "
+    )
+    print(
+        "1. Square\n2. Rectangle\n3. Equilateral Triangle\n4. Quit"
+    )
+    user_choice=input("Enter your choice to continue:")
+    if user_choice=='1':
+        los=Square(float(input("Enter the length of each side of the square in cms.: ")))
+
+        area_of_square=los.area()
+        perimeter_of_square=los.perimeter()
+
+        print(f"The area of the square would be {area_of_square} square cms.")
+        print(f"The perimeter of the square would be {perimeter_of_square} cms.")
+
+    elif user_choice=='2':
+        lor=float(input("Enter the length of the rectangle in cms.:"))
+        wor=float(input("Enter the width of the rectangle in cms.:"))
+        rectangle=Rectangle(lor,wor)
+
+        area_of_rectangle=rectangle.area()
+        perimeter_of_rectangle=rectangle.perimeter()
+
+        print(f"The area of the rectange would be {area_of_rectangle} square cms.")
+        print(f"The perimeter of the rectangle would be {perimeter_of_rectangle} cms.")
+
+    elif user_choice=='3':
+        sot=EquilateralTriangle(float(input("Enter the length of the sides of the Equilateral Triangle in cms.: ")))
+
+        area_of_equilateral_triangle=sot.area()
+        perimeter_of_equilateral_triangle=sot.perimeter()
+
+        print(f"The area of the equilateral triangle is {area_of_equilateral_triangle} square cms.")
+        print(f"The perimeter of the equilateral triangle is {perimeter_of_equilateral_triangle} cms")
+
+    elif user_choice=='4':
+        print("Thank you for using the Geometric Shape Calculator.")
+        break
