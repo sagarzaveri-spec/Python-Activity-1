@@ -1,0 +1,42 @@
+import json
+import os
+
+class AirTicket:
+    def __init__(self):
+        self.booking_file="Bookings.json"
+        self.route_file="Routes.json"
+
+        self.routes=self.load_routes()
+        self.bookings=self.load_bookings()
+    
+    # File Handling
+    def load_routes(self):
+        if os.path.exists(self.route_file):
+            with open(self.route_file,'r') as f:
+                return{tuple(k.split(",")): v for k,v in json.load(f).items()}
+        else:
+            routes={
+                ("Mumbai","Jaipur"): 15000,
+                ("Mumbai","Delhi"): 20000,
+                ("Mumbai","Surat"): 5000,
+                ("Mumbai","Udaipur"): 12500 
+            }
+            self.save_routes(routes)
+            return routes
+        
+    def save_routes(self,routes):
+        data={",".join(k):v for k, v in routes.items()}
+        with open(self.route_file,'w') as f:
+            json.dump(data,f,indent=4)
+    
+    def load_bookings(self):
+        if os.path.exists(self.booking_file):
+            with open(self.booking_file,'r') as f:
+                return json.load(f)
+        return []
+    
+    def save_bookings(self):
+        with open(self.booking_file,'w') as f:
+            json.dump(self.bookings,f,indent=4)
+
+# Core Logic
