@@ -1,0 +1,59 @@
+'''
+from tkinter import *
+from PIL import Image, ImageTk
+
+root=Tk()
+root.title('Image')
+root.geometry('400x400')
+
+upload=Image.open('Image.png')
+
+image=ImageTk.PhotoImage(upload)
+
+label=Label(root, image=image, height=350, width=300)
+label.place(x=50, y=0)
+label2=Label(root, text='This is how you add an image in Tkinter Window')
+label2.place(x=40, y=360)
+
+root.mainloop()
+'''
+
+'''
+from tkinter import *
+from tkinter import messagebox
+
+root=Tk()
+root.geometry('200x200')
+
+def msg():
+    messagebox.showwarning('Alert','Stop! Virus Found.')
+
+button=Button(root, text='Scan for Virus', command=msg)
+button.place(x=40,y=80)
+
+root.mainloop()
+'''
+
+'''
+from tkinter import *
+
+root=Tk()
+root.geometry('400x300')
+root.title('main')
+
+def topwindow():
+    top=Toplevel()
+    top.geometry("180x100")
+    top.title("toplevel")
+    L2=Label(top,text="This is a toplevel window")
+    L2.pack()
+
+    top.mainloop()
+
+L=Label(root,text="This is the root window")
+button=Button(root,text="Click here to open another window", command=topwindow)
+
+L.pack()
+button.pack()
+root.mainloop()
+'''
