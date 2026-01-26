@@ -1,0 +1,70 @@
+class StudentDirectory:
+    def __init__(self,name,favourite_subject):
+        self.name=name
+        self.favourite_subject=favourite_subject
+    def save_to_files(self):
+        file=open('Student Directory.txt','a')
+        file.write(self.name+","+self.favourite_subject+"\n")
+        file.close()
+        print("Student details recorded successfully")
+def read_from_file():
+    try:
+        file=open("Student Directory.txt",'r')
+        print('\nSaved details')
+        print("----------------------------------------")
+        for line in file:
+            name,favourite_subject=line.strip().split(",")
+            print("Name:",name," | Favourite Subject: ",favourite_subject)
+        file.close()
+    except FileNotFoundError:
+        print("No file found. Please add contacts first.\n")
+def edit_from_file():
+    try:
+        file=open("Student Directory.txt",'r')
+        lines=file.readlines()
+        file.close()
+
+        edit_name=input("Enter the students' name whose favourite subject needs to be edited: ")
+        updated_subject=input("Enter the new favourite subject: ")
+
+        updated=False
+
+        file=open('Student Directory.txt','w')
+        for line in lines:
+            name,favourite_subject=line.strip().split(",")
+            if name==edit_name:
+                file.write(name+","+updated_subject+"\n")
+                updated=True
+            else:
+                file.write(line)
+        file.close()
+
+        if updated:
+            print("Favourite subject updated successfully.")
+        else:
+            print("Student details not found.")
+
+    except FileNotFoundError:
+         print("No file found. Please add contacts first.\n")
+
+while True:
+    print("1. Add Student Details")
+    print("2. Read the Student Directory")
+    print("3. Edit Favourite Subject Details")
+    print("4. Exit")
+    choice=input("Enter your choice: ")
+
+    if choice=='1':
+        name=input("Enter the students' name: ")
+        favourite_subject=input("Enter the students' favourite subject: ")
+        s=StudentDirectory(name,favourite_subject)
+        s.save_to_files()
+    elif choice=='2':
+        read_from_file()
+    elif choice=='3':
+        edit_from_file()
+    elif choice=='4':
+        print("Exiting student directory")
+        break
+    else:
+        print("Invalid choice. Please try again")
