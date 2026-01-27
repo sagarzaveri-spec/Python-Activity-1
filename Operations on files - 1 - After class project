@@ -1,0 +1,28 @@
+# Opening and printing all the contents of the file
+with open('Operations after class project.txt','r') as file:
+    print(file.read())
+file.close()
+
+# Printing only the first 10 characters
+with open('Operations after class project.txt','r') as file:
+    print(file.read(10))
+file.close()
+
+# Printing the first line from the file
+with open('Operations after class project.txt','r') as file:
+    print(file.readline())
+file.close()
+
+# Printing the first 4 lines from the file
+with open('Operations after class project.txt','r') as file:
+    print(file.readline(),end="")
+    print(file.readline(),end="")
+    print(file.readline(),end="")
+    print(file.readline(),end="")
+file.close()
+
+# Loop through the contents of the file
+with open('Operations after class project.txt','r') as file:
+    for i in file:
+        print(i.strip())
+file.close()
