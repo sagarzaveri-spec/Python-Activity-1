@@ -1,0 +1,73 @@
+'''
+#The program tp show the time complexity
+
+def printnumber(n):
+    iterations=0
+    print("The number entered by the user is",n)
+    iteration+=1
+    print("Total iterations done by the code is",iterations,'\n')
+
+printnumber(10)
+printnumber(20)
+print("\n With any 'n' the time taken by pur code will not change")
+'''
+
+'''
+#Binary Search Algorithm - sorted array/list
+# 1. Find the middle elements
+# 2. Compare with the target
+# 3. If middle[value]==target, then key is found, here value is index
+# 4. If target<middle[value], then search left half
+# 5. If target>middle[value], then search the reight half
+# 6. repeat until found
+
+def binary_search(array,key):
+    low=0
+    high=len(array)-1
+    while low<=high:
+        mid=(low+high)//2 #middle index
+        if array[mid]==key:
+            return mid
+        elif array[mid]<key:
+            low=mid+1 #search right half
+        elif array[mid]>key:
+            high=mid-1 #search left half
+    return-1
+
+array=[2,5,8,11,23,45,67,89,111,234]
+key=int(input("Number to search: "))
+result=binary_search(array,key)
+if result!=-1:
+    print("Element found at index",result)
+else:
+    print("Element not found")
+'''
+
+'''
+def OnTime(n):
+    iteration=0
+    for i in range(1,n+1):
+        iteration+=1
+    print("When n is",n,"iterations=",iteration)
+
+OnTime(10)
+OnTime(20)
+OnTime(42)
+print("\nWith every 'n' the time taken and iterations will increase")
+'''
+
+def OnSquareTime(n):
+    iteration=0
+    for i in range(0,n):
+        for j in range(0,n):
+            print("*",end=" ")
+            iteration+=1
+        print("")
+    print("\nWhen n is",n,"iterations=",iteration)
+
+OnSquareTime(5)
+OnSquareTime(4)
+OnSquareTime(3)
+
+print("\nWith every 'n' the time taken equals n^2")
+print("O(n^2)")
