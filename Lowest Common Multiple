@@ -1,0 +1,24 @@
+#Lowest Common Multiple
+Number1=int(input("Enter the first number: "))
+Number2=int(input("Enter the second number: "))
+
+def find_LCM(x,y):
+    if x>y:
+        larger_number=x
+    else:
+        larger_number=y
+    while True:
+        if larger_number%x==0 and larger_number%y==0:
+            return larger_number
+        larger_number+=1
+
+print("The LCM is",find_LCM(Number1,Number2))
+
+def power(base,exponent):
+    result=1
+    for _ in range(exponent):
+        result=result*base
+    return result
+base=int(input("Base= "))
+exponent=int(input("Exponent= "))
+print(f"{base}^{exponent}={power(base,exponent)}")
