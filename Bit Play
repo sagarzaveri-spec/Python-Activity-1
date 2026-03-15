@@ -1,0 +1,34 @@
+# Count 1s and 0s in Bindary bit level
+# 1. N
+# 2. last bit N&1
+# 3. if result==1, onebit++
+# 4.if result==0, zerobit++
+# 5.right shift N>>1
+
+'''
+N=int(input("N = "))
+onesbit=0
+zerosbit=0
+temp=N
+while temp>0:
+    result=temp&1 #check last bit
+    if result==1:
+        onesbit+=1
+    else:
+        zerosbit+=1
+    temp=temp>>1
+print("Number: ",N)
+print("1 bits",onesbit)
+print("0 bits",zerosbit)
+'''
+
+# Sets bits in a number
+def setornot(number, n):
+    if number&(1<<(n-1)):
+        print("\nSet")
+    else:
+        print("\nNot Set")
+
+number=int(input("Enter Number: "))
+n=int(input("Enter bit number: "))
+setornot(number, n)
