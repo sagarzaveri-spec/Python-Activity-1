@@ -1,0 +1,13 @@
+Number1=int(input("Enter the first number: "))
+Number2=int(input("Enter the second number: "))
+
+def multiply(number1,number2):
+    return number1*number2
+print("The result is",multiply(Number1,Number2))
+
+def multiplication(a,b):
+    result=0
+    for _ in range(b):
+        result+=a
+    return result
+print("The result is",multiplication(Number1,Number2))
