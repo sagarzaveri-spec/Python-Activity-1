@@ -1,0 +1,37 @@
+# Swapping variables
+def swap(a,b):
+    a=a^b
+    b=a^b
+    a=a^b
+    print("After Swapping: a=",a,"b=",b)
+
+def swap2(a,b):
+    a=(a&b) + (a|b)
+    b=a+(-b)+1
+    a=a+(-b)+1
+    print("After Swapping: a=",a,"b=",b)
+
+swap(1,4)
+swap2(3,2)
+
+# divide without divide
+def divide(Dividend,Divisor):
+    sign=(-1 if((Dividend<0)^(Divisor<0))else 1);
+    Dividend=abs(Dividend)
+    Divisor=abs(Divisor)
+
+    QuotientNumber=0
+    TempNumber=0
+
+    for i in range(31,-1,-1):
+        if(TempNumber+(Divisor<<i)<=Dividend):
+            TempNumber+=Divisor<<i
+            QuotientNumber|=1<<i
+    
+    if sign==-1:
+        QuotientNumber=-QuotientNumber
+    return QuotientNumber
+
+a=int(input("Enter a for a/b: "))
+b=int(input("Enter b for a/b: "))
+print("Result of ",a,"/",b,"is",divide(a,b))
