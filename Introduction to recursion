@@ -1,0 +1,44 @@
+'''
+def factorial(x):
+    if x==0:
+        return 1
+    return x*factorial(x-1)
+
+Number=int(input(("Enter the factorial number:")))
+print("The factorial for",Number,"is",factorial(Number))
+
+def print10(number):
+    if (number>10):
+        return
+    print(number)
+    print10(number+1)
+
+number=int(input("Enter the number:"))
+print(print10(number))
+'''
+
+'''
+def sum_of_numbers(numbers):
+    if numbers==0:
+        return 0
+    return numbers%10+sum_of_numbers(numbers//10)
+
+numbers=int(input("Enter the numbers to be added: "))
+print("The sum of numbers is",sum_of_numbers(numbers))
+
+def factorial(x):
+    if x==0:
+        return 1
+    return x*factorial(x-1)
+
+x=int(input("Enter the number: "))
+print("The factorial is",factorial(x))
+'''
+
+def number_of_digits(x):
+    if x==0:
+        return 0
+    return 1+number_of_digits(x//10)
+
+x=int(input("Enter the number: "))
+print("There are",number_of_digits(x),"digits")
