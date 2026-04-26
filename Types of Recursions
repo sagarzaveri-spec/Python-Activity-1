@@ -1,0 +1,65 @@
+# Tail Recursion
+# function calls itself and that recursive call is the last statement in the function.
+
+def tail(n):
+    if (n!=0):
+        print(n)
+        tail(n-1)
+x=int(input("Enter the number: "))
+tail(x)
+
+# Head Recursion
+# function calls itself and that recursive call is the first statement in the function.
+
+def head(n):
+    if(n!=0):
+        head(n-1)
+        print(n)
+x=int(input("Enter the number: "))
+head(x)
+
+# Tree Recursion
+# recursive function calls itself only once, it is a linear recursion. If it calls itself multiple times it is tree recurison. 
+
+def tree(n):
+    if (n!=0):
+        print(n)
+        tree(n-1)
+        tree(n-1)
+x=int(input("Enter the number: "))
+tree(x)
+
+# To print numbers from 1 to n using head recursion. 
+def headrec(n,num):
+    if n>num:
+        return
+    headrec(1+n,num)
+    print(n)
+n=int(input("Enter n to print from 1 to n: "))
+headrec(1,n)
+
+# list 
+def sum_list(arr,n,result):
+    if n==0:
+        return result
+    return sum_list(arr,n-1,result+arr[n-1])
+arr=[2,4,5,6,7,11,88]
+print(sum_list(arr,len(arr),0))
+
+# recurtree example
+def recurtree(s,current,index):
+    if index==len(s):
+        print(current)
+        return
+    recurtree(s,current+s[index],index+1)
+    recurtree(s,current,index+1)
+recurtree("XY","",0)
+
+def head_recursion(n,num):
+    if(n<1 or n>num):
+        return
+    print(n)
+    head_recursion(n-1,num)
+    print(n)
+n=int(input("Enter the number: "))
+head_recursion(n,n)
