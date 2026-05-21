@@ -1,0 +1,35 @@
+'''
+#Sorted array recursion
+def checkSorted(a):
+    length=len(a)
+    if length==1 or length==0:
+        return True
+    return a [0]<=a[1] and checkSorted(a[1:])
+a=[1,2,3,5,6,8,2]
+
+if checkSorted(a):
+    print("\nYes given array is sorted")
+else:
+    print("\nNo given array is not sorted")
+
+#Recursive Array Sum
+def arrayTotalSum(a):
+    length=len(a)
+    if length ==1:
+        return a[0]
+    return a[0] + arrayTotalSum(a[1:])
+a=[1,9,3,6]
+
+print("The sum is",arrayTotalSum(a))
+'''
+# Largest Array Element
+# Algorithm
+
+def MaxElementArray(a):
+    length=len(a)
+    if length==1:
+        return a[0]
+    return max(a[0],MaxElementArray(a[1:]))
+a=[1,2,34,5,66,7,8,654,3,322,344,565]
+
+print("Largest element of the array",MaxElementArray(a))
