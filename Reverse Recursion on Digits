@@ -1,0 +1,29 @@
+def count_digits(n):
+    if n==0:
+        return 1
+    
+    count=0
+    while n:
+        count+=1
+        n//=10
+    return count
+
+def reverse_number(n):
+    digits=count_digits(n)
+    if digits==1:
+        return n
+    half=digits//2
+    power=10**half
+
+    left=n//power
+    right=n%power
+
+    reversed_left=reverse_number(left)
+    reversed_right=reverse_number(right)
+
+    left_digits=count_digits(left)
+
+    return reversed_right*(10**left_digits)+reversed_left
+
+number=int(input("Enter the number: "))
+print(reverse_number(number))
