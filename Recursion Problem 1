@@ -1,0 +1,37 @@
+# Recursively Reverse Number
+def reverse_number(number):
+    if(number>0): 
+        last=number%10
+        if(number//10>0):
+            current_number=reverse_number((int)(number//10))
+            return last*pow(10,len(str(current_number)))+current_number
+        return number
+    
+number=int(input("Enter the number: "))
+print("Reverse: ",reverse_number(number))
+
+# String Recursion
+def reverse_string(s):
+    if len(s)==1:
+        return s[0]
+    firstchar=s[0]
+    return reverse_string(s[1:])+firstchar
+s="Sagar Zaveri"
+print(reverse_string(s))
+
+# Power of 4 recursion
+n=int(input("Enter your number: "))
+
+def checkifpower(n):
+    if(n<=0):
+        return False
+    if(n==1):
+        return True
+    if (n%4==0):
+        return checkifpower(n/4)
+    return False
+
+if(checkifpower(n)):
+    print("Power of 4")
+else:
+    print("Not power of 4")
