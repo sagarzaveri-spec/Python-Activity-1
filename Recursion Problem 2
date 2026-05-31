@@ -1,0 +1,68 @@
+'''
+def reverse_number(number):
+    if(number>0): 
+        last=number%10
+        if(number//10>0):
+            current_number=reverse_number((int)(number//10))
+            return last*pow(10,len(str(current_number)))+current_number
+        return number
+    
+number=int(input("Enter the number: "))
+print("Reverse: ",reverse_number(number))
+'''
+
+'''
+# Climb nth stairs - dynamic programming (DP)
+def ways(stairs):
+    if stairs<0:
+        return 0
+    if stairs==0:
+        return 1
+    twoSteps=0
+    oneStep=0
+
+    if (stairs>=2):
+        twoSteps=ways(stairs-2)
+    oneStep=ways(stairs-1)
+    return twoSteps+oneStep
+
+stairs=int(input("Enter number of steps: "))
+print("Number of ways to climb: ",ways(stairs))
+'''
+
+# Balance Parenthesis
+# Algorithm 
+# Input: n=number of pair brackets
+# Output: All valid balanced bracket combinations
+
+# Steps: 
+# 1. Start with empty string
+# 2. if the number of left brackets { used is less than n, add {
+# 3. if the number of right brackets } used is less than left brackets used, add }
+# 4. Repeat recursively
+# 5. When the string length becomes 2*n, print the result
+
+# paren(s,l,r,p,n)
+# s - store the current bracket sequence
+# l - number of { used
+# r - number of } used
+# p - current position of array
+# n - total number of brackets
+
+def paren(s,l,r,p,n):
+    if(p==2*n):
+        for ss in s:
+            print(ss,end='')
+        print("\n")
+        return
+    if(l>r):
+        s[p]="}"
+        paren(s,l,r+1,p+1,n)
+    if(l<n):
+        s[p]="{"
+        paren(s,l+1,r,p+1,n)
+
+n=int(input("Enter the number of parenthesis: "))
+s=[""]*2*n
+print("\n")
+paren(s,0,0,0,n)
