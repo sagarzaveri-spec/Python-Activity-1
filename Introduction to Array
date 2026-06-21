@@ -1,0 +1,84 @@
+# Example
+import array as arr
+a=arr.array('i', [1, 2, 3, 4, 5])
+
+a.append(6)
+a.append(8)
+a.insert(1,10)
+
+a.pop()
+print("Element removed: ",a.pop())
+
+for c in a:
+    print(c)
+
+# Mean & Median
+arr=[1,2,3,43,22,11,34,4,5,6,7,8,9]
+arr_size=len(arr)
+
+def arrayMean(arr,arr_size):
+    total_sum=0
+    for i in range(0,arr_size):
+        total_sum+=arr[i]
+    mean=total_sum/arr_size
+    return mean
+
+def arrayMedian(arr,arr_size):
+    sorted(arr)
+    if arr_size%2!=0:
+        return float(arr[int(arr_size/2)])
+    return float((arr[int((arr_size-1)/2)]+arr[int(arr_size/2)])/2.0)
+
+print('Mean = ',arrayMean(arr,arr_size))
+print('Median = ',arrayMedian(arr,arr_size))
+
+# # Max & Min Algorithm
+# Check length of the array size
+# Initialise Maximum and minimum valeu as 0
+# Compare each element with the maximum or minimum value and update accordingly
+# return maximum and minimum value
+
+def arrayMax(arr,arr_size):
+    max=arr[0]
+    for i in range(1,arr_size):
+        if arr[i]>max:
+            max=arr[i]
+    return max
+
+def arrayMin(arr,arr_size):
+    min=arr[0]
+    for i in range(1,arr_size):
+        if arr[i]<min:
+            min=arr[i]
+    return min
+
+print('Maximum element in the array is: ',arrayMax(arr,arr_size))
+print('Minimum element in the array is: ',arrayMin(arr,arr_size))
+
+# Second largest element
+def second_largest(arr,arr_size):
+    largest=secondlargest=-2147483648
+    for i in range(arr_size):
+        if (arr[i]>largest):
+            secondlargest=largest
+            largest=arr[i]
+        elif (arr[i]>secondlargest and arr[i]!=largest):
+            secondlargest=arr[i]
+    print(secondlargest)
+
+arr=[1,2,3,43,22,11,34,4,5,6,7,8,9]
+arr_size=len(arr)
+second_largest(arr,arr_size)
+
+# Second method
+
+arr=[1,2,3,43,22,11,42,34,4,5,6,7,8,9]
+largestnum=arr[0]
+secondnum=arr[0]
+for num in arr:
+    if num>largestnum:
+        secondnum=largestnum
+        largestnum=num
+    elif num>secondnum and num!=largestnum:
+        secondnum=num
+print("Second largest element in the array is: ", secondnum)
