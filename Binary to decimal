@@ -1,0 +1,10 @@
+binary_number=(input("Enter the binary number: "))
+
+decimal=0
+power=0
+
+for digits in binary_number[::-1]:
+    decimal=decimal+int(digits)*(2**power)
+    power+=1
+
+print("Decimal Number is: ",decimal)
