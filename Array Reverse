@@ -1,0 +1,11 @@
+scores=[6,5,4,3,2,1]
+n,i=6,0
+while i<len(scores):
+    start, end=i, min(i+n-1, len(scores)-1)
+    while start<end:
+        scores[start],scores[end]=scores[end],scores[start]
+        start+=1
+        end-=1
+    i+=n
+print("Reversed Array:",scores)
+print()
