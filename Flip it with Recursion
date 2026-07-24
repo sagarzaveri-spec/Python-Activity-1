@@ -1,0 +1,75 @@
+# Recursively Reverse Number
+def reverse_number(number):
+    if(number>0): 
+        last=number%10
+        if(number//10>0):
+            current_number=reverse_number((int)(number//10))
+            return last*pow(10,len(str(current_number)))+current_number
+        return number
+    
+number=int(input("Enter the number: "))
+print("Reverse: ",reverse_number(number))
+
+# String Recursion
+def reverse_string(s):
+    if len(s)==1:
+        return s[0]
+    firstchar=s[0]
+    return reverse_string(s[1:])+firstchar
+s="Sagar Zaveri"
+print(reverse_string(s))
+
+# Power of 4 recursion
+n=int(input("Enter your number: "))
+
+def checkifpower(n):
+    if(n<=0):
+        return False
+    if(n==1):
+        return True
+    if (n%4==0):
+        return checkifpower(n/4)
+    return False
+
+if(checkifpower(n)):
+    print("Power of 4")
+else:
+    print("Not power of 4")
+
+# Reverse Digits Recursion
+# Alogrithm
+# 1. count digits in the number
+# 2. if only one digit and return number
+# 3. split into h=two halves
+# 4. recursively reverse both halves
+# 5. combine both
+
+def count_digits(n):
+    if n==0:
+        return 1
+    
+    count=0
+    while n:
+        count+=1
+        n//=10
+    return count
+
+def reverse_number(n):
+    digits=count_digits(n)
+    if digits==1:
+        return n
+    half=digits//2
+    power=10**half
+
+    left=n//power
+    right=n%power
+
+    reversed_left=reverse_number(left)
+    reversed_right=reverse_number(right)
+
+    left_digits=count_digits(left)
+
+    return reversed_right*(10**left_digits)+reversed_left
+
+number=int(input("Enter the number: "))
+print(reverse_number(number))
