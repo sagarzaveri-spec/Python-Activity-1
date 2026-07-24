@@ -1,0 +1,41 @@
+def countdown(number):
+    if number==0:
+        print("Time is up")
+        return
+    
+    print(number)
+    countdown(number-1)
+
+number=int(input("Enter the number of seconds for the countdown: "))
+print("Countdown from",number,":")
+countdown(number)
+
+def build_and_unwind(level):
+    if level==0:
+        print("Base case reached. Now the unwinding begins.")
+        return
+    print("Building level: ",level)
+    build_and_unwind(level-1)
+    print("Unwinding level: ",level)
+
+level=int(input("Enter the level: "))
+print("Build and Unwind Demo: ")
+build_and_unwind(level)
+
+def countup(number):
+    if number>10:
+        return
+    print(number)
+    countup(number+1)
+
+print("Counting from 1 to 10")
+countup(1)
+
+def factorial(number):
+    if number==0 or number==1:
+        return 1
+    return number*factorial(number-1)
+
+number=int(input("Enter the number: "))
+print("Factorial Result: ")
+print(f"The factorial of {number} is {factorial(number)}")
