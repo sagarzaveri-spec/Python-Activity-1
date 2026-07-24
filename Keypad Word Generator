@@ -1,0 +1,45 @@
+# Tower of Hanoi
+# if n==1:
+# Move disk 1 from Source to Destination
+# else:
+# Hanoi(n-1,source,destination,auxillary)
+# move disk n from the source to destination
+# Hanoi(n-1,auxillary,source,destination)
+
+def Hanoi(n,source,auxillary,destination):
+    if n==1:
+        print(f"Move disk 1 from {source} to {destination}")
+        return
+    Hanoi(n-1,source,destination,auxillary)
+    print(f"Move disk {n} from {source} to the {destination}")
+    Hanoi(n-1,auxillary,source,destination)
+Hanoi(3,'A','B','C')
+
+# Phone Keypad
+# Algorithm PhoneKeypad(combination,curr,output,n):
+# if the current position = n
+#     then we print the output
+# else
+#     for each letter/character ch in the keypad 
+#         add letter/character ch to the output
+#         remove the last letter from the output (Backtracking)
+# End algorithm
+
+keypad=["","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"]
+
+def printcombinations(combination,curr,output,n):
+    if(curr==n):
+        print(*output,sep=",")
+        return
+    for i in range(len(keypad[combination[curr]])):
+        output.append(keypad[combination[curr]][i])
+        printcombinations(combination,curr+1,output,n)
+        output.pop()
+        if(combination[curr]==0 or combination[curr]==1):
+            return
+        
+combination=[4,3,4]
+n=len(combination)
+printcombinations(combination,0,[],n)
+
+# Calculate the ways a rat can escape a Maze
