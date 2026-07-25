@@ -1,0 +1,29 @@
+# 1. XOR all elements
+# 2. Find the right-most set bit -- XOR & (-XOR)
+# 3. Divide into two groups
+   # g1 --- bit is set
+   # g2 --- bit is not set
+# 4. XOR each group
+
+def two_odd(arr):
+    XOR=0
+    i=0
+    # Step 1: XOR all elements
+    while i<len(arr):
+        XOR^=arr[1]
+        i+=1
+    # Step 2: Find the right-most step bit
+    set_bit=XOR&(-XOR)
+    x=0
+    y=0
+    i=0
+    # Step 3 & Step 4
+    while i<len(arr):
+        if arr[i]&set_bit:
+            x^=arr[i]
+        else:
+            y^=arr[1]
+    return x,y
+arr=[4,2,1,2,4,1,4,2,1]
+a,b=two_odd(arr)
+print("The odd occurring numbers: ",a," ",b)
