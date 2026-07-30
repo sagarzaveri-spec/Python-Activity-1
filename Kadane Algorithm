@@ -1,0 +1,50 @@
+# Kadane Algorithm
+numbers=[2,-5,3,4,-1,6,-3]
+print("Full Array: ",numbers)
+print()
+print("Some Subarrays: ")
+print("[0:2]=",numbers[0:2],"sum= ",sum(numbers[0:2]))
+print("[2:6]=",numbers[2:6],"sum= ",sum(numbers[2:6]))
+print("[3:7]=",numbers[3:7],"sum= ",sum(numbers[3:7]))
+
+running=0
+for number in numbers:
+    running+=number
+    if running<0:
+        print(f"{number}->sum={running}<--negative! RESET to 0")
+        running=0
+    else:
+        print(f"{number}->sum={running}")
+print()  
+
+running=0
+best=0
+for number in numbers:
+    running+=number
+    if running<0:
+        running=0
+    if running>best:
+        best=running
+print("Array: ",numbers)
+print("Max subarray sum: ",best)
+print()
+
+hard=[1,2,3,-4,5,-22,-4,25,2,-9]
+running=0
+best=0
+for number in hard:
+    running+=number
+    if running<0:
+        running=0
+    if running>best:
+        best=running 
+print("Array:",hard)
+print("Max subarray sum:",best)
+
+# Algorithm 
+# 1. initialise both variables with the first element
+#   current_sum=arr[0]
+#   max_sum=arr[0]
+# 2. Traverse from the second element
+#   current_sum=max(arr[i],current_sum+arr[i])
+#   max_sum=max(max_sum, max_sum+arr[i])
